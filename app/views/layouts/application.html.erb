@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PosFix Developer Portal</title>
+        <%= csrf_meta_tags %>
+
+        <link href="/content/css/bootstrap.css" rel="stylesheet" />
+        <link href="/content/css/Site.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button
+                        type="button"
+                        class="navbar-toggle"
+                        data-toggle="collapse"
+                        data-target=".navbar-collapse"
+                    >
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <a href="/home/index">
+                    <img
+                        src="/images/posfix-logo.png"
+                        width="10%"
+                        height="10%"
+                        style="margin-left: 25px; margin-top: 10px"
+                    />
+                </a>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <%= link_to '3D Ödeme', controller:
+                            'home', action: 'index' %>
+                        </li>
+                        <li>
+                            <%= link_to '(Non-3D) Ödeme ', controller: 'home',
+                            action: 'nonThreeDPayment' %>
+                        </li>
+                        <li>
+                            <%= link_to 'Ödeme Sorgulama', controller: 'home',
+                            action: 'paymentInquiry' %>
+                        </li>
+                        <li>
+                            <%= link_to 'Ödemeleri Listele', controller: 'home',
+                            action: 'paymentInquiryWithTime' %>
+                        </li>
+                        <li>
+                            <%= link_to 'Bin Sorgulama ', controller: 'home',
+                            action: 'bininqury' %>
+                        </li>
+                        <li>
+                            <%= link_to 'Cüzdana Kart Ekle', controller: 'home',
+                            action: 'addCardToWallet' %>
+                        </li>
+                        <li>
+                            <%= link_to 'Cüzdandaki Kartları Listele',
+                            controller: 'home', action: 'getCardFromWallet' %>
+                        </li>
+                        <li>
+                            <%= link_to 'Cüzdandan Kart Sil', controller:
+                            'home', action: 'deleteCardFromWallet' %>
+                        </li>
+                        <li>
+                            <%= link_to 'Cüzdandaki Kart İle Ödeme',
+                            controller: 'home', action: 'nonThreeDPaymentWithWallet'
+                            %>
+                        </li>
+                        <li>
+                            <%= link_to 'Ödeme Linki Oluştur', controller:
+                            'home', action: 'paymentLinkCreate' %>
+                        </li>
+                        <li>
+                            <%= link_to 'Ödeme Linki Sorgula', controller:
+                            'home', action: 'paymentLinkInquiry' %>
+                        </li>
+                        <li>
+                            <%= link_to 'Ödeme Linki Sil', controller: 'home',
+                            action: 'paymentLinkDelete' %>
+                        </li>
+                        <li>
+                            <%= link_to 'İade Sorgula', controller: 'home',
+                            action: 'paymentRefundInquiry' %>
+                        </li>
+                        <li>
+                            <%= link_to 'İade', controller: 'home', action:
+                            'paymentRefund' %>
+                        </li>
+
+                        <%#
+                        <li>
+                            @Html.ActionLink("3D Ödeme",
+                            "ThreeDPayment", "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("(Non-3D) Ödeme ",
+                            "NonThreeDPayment", "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Ödeme Sorgulama",
+                            "PaymentInquiry", "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Ödemeleri Listele",
+                            "PaymentInquiryWithTime", "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Bin Sorgulama", "BinInqury",
+                            "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Cüzdana Kart Ekle",
+                            "AddCardToWallet", "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Cüzdandaki Kartları Listele",
+                            "GetCardFromWallet", "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Cüzdandan Kart Sil",
+                            "DeleteCardFromWallet", "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Cüzdandaki Kart İle
+                            Ödeme", "NonThreeDPaymentWithWallet", "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Ödeme Linki Oluştur",
+                            "PaymentLinkCreate", "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Ödeme Linki Sorgula",
+                            "PaymentLinkInquiry", "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Ödeme Linki Sil",
+                            "PaymentLinkDelete", "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("İade Sorgula",
+                            "PaymentRefundInquiry", "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("İade", "PaymentRefund", "Home")
+                        </li>
+                        %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            <br />
+            <%= yield %>
+            <hr />
+            <footer>
+                <p>&copy; 2021 - PosFix</p>
+            </footer>
+        </div>
+    </body>
+</html>
