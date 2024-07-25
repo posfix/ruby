@@ -38,6 +38,10 @@
                             'home', action: 'index' %>
                         </li>
                         <li>
+                          <%= link_to 'Ön Otorizasyon Açma', controller: 'home',
+                                      action: 'preAuth' %>
+                        </li>
+                        <li>
                             <%= link_to '(Non-3D) Ödeme ', controller: 'home',
                             action: 'nonThreeDPayment' %>
                         </li>

@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+    require_dependency 'app/helpers/PreAuthRequest.rb'
     def index
         if request.post?
             req = Threedpaymentrequest.new
@@ -24,6 +25,91 @@ class HomeController < ApplicationController
 
             @returnData = req.execute(req, @@settings) #3D secure ödeme servisinin başladığı kısımdır.
             render inline: @returnData
+        end
+    end
+
+    def preAuth
+        if request.post?
+            req = PreAuthRequest.new
+
+            req.OrderId = SecureRandom.uuid
+            req.Echo = 'Echo'
+            req.Mode = @@settings.Mode
+            req.Amount = params[:amount]
+            req.CardOwnerName = params[:nameSurname]
+            req.CardNumber = params[:cardNumber]
+            req.CardExpireMonth = params[:month]
+            req.CardExpireYear = params[:year]
+            req.Installment = params[:installment]
+            req.Cvc = params[:cvc]
+            req.ThreeD = 'false'
+            req.UserId = ''
+            req.CardId = ''
+
+            #region Sipariş veren bilgileri
+            req.Purchaser = Purchaser.new
+            req.Purchaser.Name = 'Ahmet'
+            req.Purchaser.SurName = 'Veli'
+            req.Purchaser.BirthDate = '1986-07-11'
+            req.Purchaser.Email = 'ahmet@veli.com'
+            req.Purchaser.GsmPhone = '5881231212'
+            req.Purchaser.IdentityNumber = '1234567890'
+            req.Purchaser.ClientIp = '127.0.0.1'
+
+            #endregion
+
+            #region Fatura bilgileri
+            req.Purchaser.Invoiceaddress = Purchaseraddress.new
+            req.Purchaser.Invoiceaddress.Name = 'Ahmet'
+            req.Purchaser.Invoiceaddress.SurName = 'Veli'
+            req.Purchaser.Invoiceaddress.Address =
+              'Mevlüt Pehlivan Mah. PosFix Plaza Şişli'
+            req.Purchaser.Invoiceaddress.ZipCode = '34782'
+            req.Purchaser.Invoiceaddress.CityCode = '34'
+            req.Purchaser.Invoiceaddress.IdentityNumber = '1234567890'
+            req.Purchaser.Invoiceaddress.CountryCode = 'TR'
+            req.Purchaser.Invoiceaddress.TaxNumber = '123456'
+            req.Purchaser.Invoiceaddress.TaxOffice = 'Kozyatağı'
+            req.Purchaser.Invoiceaddress.CompanyName = 'PosFix'
+            req.Purchaser.Invoiceaddress.PhoneNumber = '2122222222'
+
+            #endregion
+
+            #region Kargo Adresi bilgileri
+            req.Purchaser.Shippingaddress = Purchaseraddress.new
+            req.Purchaser.Shippingaddress.Name = 'Ahmet'
+            req.Purchaser.Shippingaddress.SurName = 'Veli'
+            req.Purchaser.Shippingaddress.Address =
+              'Mevlüt Pehlivan Mah. PosFix Plaza Şişli'
+            req.Purchaser.Shippingaddress.ZipCode = '34782'
+            req.Purchaser.Shippingaddress.CityCode = '34'
+            req.Purchaser.Shippingaddress.IdentityNumber = '1234567890'
+            req.Purchaser.Shippingaddress.CountryCode = 'TR'
+            req.Purchaser.Shippingaddress.PhoneNumber = '2122222222'
+
+            #endregion
+
+            #region Ürün bilgileri
+            req.Products = Array.new
+            p = Product.new
+            p.Title = 'Telefon'
+            p.Code = 'TLF0001'
+            p.Price = '5000'
+            p.Quantity = 1
+            req.Products << p
+
+            p = Product.new
+            p.Title = 'Bilgisayar'
+            p.Code = 'BLG0001'
+            p.Price = '5000'
+            p.Quantity = 1
+            req.Products << p
+
+            #endregion
+
+            @returnData = req.execute(req, @@settings) #3D secure olmadan ödeme servisinin başladığı kısımdır.
+        else
+
         end
     end
 
