@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     get 'home/paymentInquiryWithTime'
     get 'home/paymentRefundInquiry'
     get 'home/paymentRefund'
+    get 'home/checkoutFormCreate'
 
     post 'home/index'
     post 'home/preAuth'
@@ -40,6 +41,7 @@ Rails.application.routes.draw do
     post 'home/paymentInquiryWithTime'
     post 'home/paymentRefundInquiry'
     post 'home/paymentRefund'
+    post 'home/checkoutFormCreate'
 
     root 'home#index'
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
