@@ -1,4 +1,5 @@
 class PreAuthRequest
+  # Ön Otorizasyon Açma servis girdi parametrelerini temsil eder.
   attr_accessor :Echo
   attr_accessor :Mode
   attr_accessor :ThreeD
@@ -18,6 +19,9 @@ class PreAuthRequest
   attr_accessor :Purchaser
   attr_accessor :Token
 
+  #	Ön Otorizasyon Açma için gerekli olan servis isteğini temsil eder.
+  # req Ödeme Onayı sağlamak için gerekli olan girdilerin olduğu sınıfı temsil eder.
+  # settings Kullanıcıya özel olarak belirlenen ayarları temsil eder.
   def execute(req, settings)
     settings.transactionDate = Core::Helper.GetTransactionDateString
     settings.HashString =
@@ -121,8 +125,6 @@ class Purchaser
   attr_accessor :Shippingaddress
 end
 
-# Bu sınıf 3D secure olmadan ödeme kısmında müşteri adres bilgisinin alanlarını temsil eder.
-
 class Purchaseraddress
   attr_accessor :Name
   attr_accessor :SurName
@@ -136,8 +138,6 @@ class Purchaseraddress
   attr_accessor :CompanyName
   attr_accessor :PhoneNumber
 end
-
-# Bu sınıf 3D secure olmadan ödeme kısmında ürün bilgisinin alanlarını temsil eder.
 
 class Product
   attr_accessor :Code

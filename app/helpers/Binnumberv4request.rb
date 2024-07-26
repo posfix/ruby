@@ -1,5 +1,5 @@
 class Binnumberv4request
-    #Bin Sorgulama servisleri içerisinde kullanılacak olan bin numarasını temsil eder.
+    #Bin Sorgulama v4 servisleri içerisinde kullanılacak olan bin numarasını temsil eder.
     attr_accessor :binNumber
     attr_accessor :amount
     attr_accessor :threeD

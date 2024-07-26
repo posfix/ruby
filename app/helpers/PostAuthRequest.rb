@@ -1,10 +1,15 @@
 class PostAuthRequest
+  # Ön Otorizasyon Kapama servis girdi parametrelerini temsil eder.
   attr_accessor :OrderId
   attr_accessor :Amount
   attr_accessor :ClientIp
   attr_accessor :Mode
   attr_accessor :Echo
   attr_accessor :Token
+
+  # Ön Otorizasyon Kapama için gerekli olan servis isteğini temsil eder.
+  # req Ödeme Onayı sağlamak için gerekli olan girdilerin olduğu sınıfı temsil eder.
+  # settings Kullanıcıya özel olarak belirlenen ayarları temsil eder.
 
   def execute(req, settings)
     settings.transactionDate = Core::Helper.GetTransactionDateString
