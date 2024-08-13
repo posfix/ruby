@@ -395,7 +395,7 @@ class HomeController < ApplicationController
       req.OrderId = SecureRandom.uuid
       req.Echo = 'Echo'
       req.Mode = @@settings.Mode
-      req.Amount = '10000' # 100 tL
+      req.Amount = '100' # 100 tL
       req.CardOwnerName = ''
       req.CardNumber = ''
       req.CardExpireMonth = ''
@@ -478,11 +478,11 @@ class HomeController < ApplicationController
     if request.post?
       req = CheckoutFormCreateRequest.new
       req.ThreeD = 'false'
-      req.Amount = 10000
+      req.Amount = 100
       req.OrderId = SecureRandom.uuid
       req.VendorId = ''
       req.AllowedInstallments = "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"
-      req.CallbackUrl = "https://apitest.posfix.com.tr/rest/payment/threed/test/result"
+      req.CallbackUrl = "https://api.posfix.com.tr/rest/payment/threed/test/result"
 
       req.Purchaser = Purchaser.new
       req.Purchaser.Name = 'Ahmet'

@@ -76,7 +76,7 @@ Test kartlarımızda alınan hata kodları ve çözümleriyle ilgili detaylı bi
             req.OrderId = SecureRandom.uuid
             req.Echo = 'Echo'
             req.Mode = @@settings.Mode
-            req.Amount = '10000'
+            req.Amount = '100'
             req.CardOwnerName = 'Ahmet Veli'
             req.CardNumber = '5456165456165454'
             req.CardExpireMonth = '12'
