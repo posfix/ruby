@@ -235,6 +235,18 @@ class HomeController < ApplicationController
         end
     end
 
+    def bininquryv4
+        if request.post?
+            req = Binnumberv4request.new
+            req.binNumber = params[:binNumber]
+            req.amount = params[:amount]
+            req.threeD = params[:threeD]
+            @returnData = req.execute(req, @@settings) #Bin sorgulama api çağırısının yapıldığı kısımdır.
+        else
+
+        end
+    end
+
     def addCardToWallet
         if request.post?
             req = Bankcardcreaterequest.new
