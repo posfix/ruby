@@ -49,7 +49,6 @@ class HomeController < ApplicationController
       req.UserId = ''
       req.CardId = ''
 
-      # region Sipariş veren bilgileri
       req.Purchaser = Purchaser.new
       req.Purchaser.Name = 'Ahmet'
       req.Purchaser.SurName = 'Veli'
@@ -59,9 +58,6 @@ class HomeController < ApplicationController
       req.Purchaser.IdentityNumber = '1234567890'
       req.Purchaser.ClientIp = '127.0.0.1'
 
-      # endregion
-
-      # region Fatura bilgileri
       req.Purchaser.Invoiceaddress = Purchaseraddress.new
       req.Purchaser.Invoiceaddress.Name = 'Ahmet'
       req.Purchaser.Invoiceaddress.SurName = 'Veli'
@@ -76,9 +72,6 @@ class HomeController < ApplicationController
       req.Purchaser.Invoiceaddress.CompanyName = 'PosFix'
       req.Purchaser.Invoiceaddress.PhoneNumber = '2122222222'
 
-      # endregion
-
-      # region Kargo Adresi bilgileri
       req.Purchaser.Shippingaddress = Purchaseraddress.new
       req.Purchaser.Shippingaddress.Name = 'Ahmet'
       req.Purchaser.Shippingaddress.SurName = 'Veli'
@@ -90,9 +83,6 @@ class HomeController < ApplicationController
       req.Purchaser.Shippingaddress.CountryCode = 'TR'
       req.Purchaser.Shippingaddress.PhoneNumber = '2122222222'
 
-      # endregion
-
-      # region Ürün bilgileri
       req.Products = Array.new
       p = Product.new
       p.Title = 'Telefon'
@@ -108,9 +98,7 @@ class HomeController < ApplicationController
       p.Quantity = 1
       req.Products << p
 
-      # endregion
-
-      @returnData = req.execute(req, @@settings) # 3D secure olmadan ödeme servisinin başladığı kısımdır.
+      @returnData = req.execute(req, @@settings) # Ön Otorizasyon Açma servisinin başladığı kısımdır.
     else
 
     end
@@ -209,7 +197,7 @@ class HomeController < ApplicationController
       req.Echo = 'Echo'
       req.Mode = @@settings.Mode
       req.ClientIp = '127.0.0.1'
-      @returnData = req.execute(req, @@settings) # 3D secure olmadan ödeme servisinin başladığı kısımdır.
+      @returnData = req.execute(req, @@settings) # Ön Otorizasyon Kapama servisinin başladığı kısımdır.
     else
 
     end
@@ -344,7 +332,7 @@ class HomeController < ApplicationController
       req.binNumber = params[:binNumber]
       req.amount = params[:amount]
       req.threeD = params[:threeD]
-      @returnData = req.execute(req, @@settings) # Bin sorgulama api çağırısının yapıldığı kısımdır.
+      @returnData = req.execute(req, @@settings) # Bin sorgulama v4 api çağırısının yapıldığı kısımdır.
     else
 
     end
@@ -552,7 +540,7 @@ class HomeController < ApplicationController
       req.Echo = 'Echo'
       req.Mode = @@settings.Mode
 
-      @returnData = req.execute(req, @@settings) 
+      @returnData = req.execute(req, @@settings) # Checkout form oluşturma çağrısının yapıldığı kısımdır.
     else
 
     end

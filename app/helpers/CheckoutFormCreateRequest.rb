@@ -1,4 +1,5 @@
 class CheckoutFormCreateRequest
+  # Checkout form oluşturma servis girdi parametrelerini temsil eder.
   attr_accessor :ThreeD
   attr_accessor :Amount
   attr_accessor :OrderId
@@ -11,6 +12,10 @@ class CheckoutFormCreateRequest
   attr_accessor :Echo
   attr_accessor :Mode
   attr_accessor :Token
+
+  #   *	Checkout form oluşturma için gerekli olan servis isteğini temsil eder.
+  #   *	req Ödeme Onayı sağlamak için gerekli olan girdilerin olduğu sınıfı temsil eder.
+  #   *	settings Kullanıcıya özel olarak belirlenen ayarları temsil eder.
 
   def execute(req, settings)
     settings.transactionDate = Core::Helper.GetTransactionDateString
@@ -104,8 +109,6 @@ class Purchaser
   attr_accessor :Shippingaddress
 end
 
-# Bu sınıf 3D secure olmadan ödeme kısmında müşteri adres bilgisinin alanlarını temsil eder.
-
 class Purchaseraddress
   attr_accessor :Name
   attr_accessor :SurName
@@ -119,8 +122,6 @@ class Purchaseraddress
   attr_accessor :CompanyName
   attr_accessor :PhoneNumber
 end
-
-# Bu sınıf 3D secure olmadan ödeme kısmında ürün bilgisinin alanlarını temsil eder.
 
 class Product
   attr_accessor :Code

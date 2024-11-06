@@ -31,6 +31,9 @@ end
 PosFix örnek projelerinin amacı, yazılım geliştiricilere PosFix servislerine entegre olabilecek bir proje örneği sunmak ve entegrasyon adımlarının daha iyi anlaşılmasını sağlamaktır.
 Projeleri doğrudan canlı ortamınıza alarak kod değişimi yapmadan kullanmanız için desteğimiz bulunmamaktadır. **Projeyi bir eğitsel kaynak (tutorial) olarak kullanınız.**
 
+### Gerekli Teknolojiler
+* Ruby 3.3.4
+
 ## Kurulum
 
 Ruby on Rails projesini `bundle install --binstubs` komutu ile yapılandırmanız gerekmektedir. Sonrasında Gemfile.json'daki bilgilere uygun olarak gem paketlerinin ve /bin dizininin kurulduğunu göreceksiniz.
