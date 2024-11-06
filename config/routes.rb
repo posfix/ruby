@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
     get 'home/index'
     get 'home/threeDPayment'
+    get 'home/preAuth'
     get 'home/nonThreeDPayment'
     get 'home/threeDResultSuccess'
     get 'home/threeDResultFail'
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
     get 'home/paymentRefund'
 
     post 'home/index'
+    post 'home/preAuth'
     post 'home/threeDPayment'
     post 'home/nonThreeDPayment'
     post 'home/bininqury'

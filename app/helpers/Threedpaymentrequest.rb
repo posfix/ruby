@@ -55,6 +55,7 @@ class Threedpaymentrequest
                         'surname': req.Purchaser.SurName,
                         'email': req.Purchaser.Email,
                         'clientIp': req.Purchaser.ClientIp,
+                        'birthDate': req.Purchaser.BirthDate,
                     },
                     'products': [
                         {
