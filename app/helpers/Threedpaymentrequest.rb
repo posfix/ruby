@@ -72,9 +72,9 @@ class Threedpaymentrequest
                         },
                     ],
                     'successUrl':
-                        'https://apitest.posfix.com.tr/rest/payment/threed/test/result',
+                        'https://api.posfix.com.tr/rest/payment/threed/test/result',
                     'failureUrl':
-                        'https://apitest.posfix.com.tr/rest/payment/threed/test/result',
+                        'https://api.posfix.com.tr/rest/payment/threed/test/result',
                     'mode': settings.Mode,
                     'version': settings.Version,
                     'transactionDate': settings.transactionDate,
