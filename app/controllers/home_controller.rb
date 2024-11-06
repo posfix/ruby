@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
     require_dependency 'app/helpers/PreAuthRequest.rb'
+    require_dependency 'app/helpers/PostAuthRequest.rb'
     def index
         if request.post?
             req = Threedpaymentrequest.new
@@ -192,6 +193,20 @@ class HomeController < ApplicationController
 
             #endregion
 
+            @returnData = req.execute(req, @@settings) #3D secure olmadan ödeme servisinin başladığı kısımdır.
+        else
+
+        end
+    end
+
+    def postAuth
+        if request.post?
+            req = PostAuthRequest.new
+            req.OrderId = params[:orderId]
+            req.Amount = params[:amount]
+            req.Echo = 'Echo'
+            req.Mode = @@settings.Mode
+            req.ClientIp = '127.0.0.1'
             @returnData = req.execute(req, @@settings) #3D secure olmadan ödeme servisinin başladığı kısımdır.
         else
 
