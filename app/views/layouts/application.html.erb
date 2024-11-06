@@ -38,9 +38,17 @@
                             'home', action: 'index' %>
                         </li>
                         <li>
+                          <%= link_to 'Ön Otorizasyon Açma', controller: 'home',
+                                      action: 'preAuth' %>
+                        </li>
+                        <li>
                             <%= link_to '(Non-3D) Ödeme ', controller: 'home',
                             action: 'nonThreeDPayment' %>
                         </li>
+                      <li>
+                        <%= link_to 'Ön Otorizasyon Kapama', controller: 'home',
+                                    action: 'postAuth' %>
+                      </li>
                         <li>
                             <%= link_to 'Ödeme Sorgulama', controller: 'home',
                             action: 'paymentInquiry' %>
@@ -52,6 +60,10 @@
                         <li>
                             <%= link_to 'Bin Sorgulama ', controller: 'home',
                             action: 'bininqury' %>
+                        </li>
+                        <li>
+                            <%= link_to 'Bin Sorgulama (V4)', controller: 'home',
+                            action: 'bininquryv4' %>
                         </li>
                         <li>
                             <%= link_to 'Cüzdana Kart Ekle', controller: 'home',
@@ -90,6 +102,10 @@
                             <%= link_to 'İade', controller: 'home', action:
                             'paymentRefund' %>
                         </li>
+                      <li>
+                        <%= link_to 'Checkout Form Oluşturma', controller: 'home', action:
+                          'checkoutFormCreate' %>
+                      </li>
 
                         <%#
                         <li>

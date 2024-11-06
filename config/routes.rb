@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
     get 'home/index'
     get 'home/threeDPayment'
+    get 'home/preAuth'
     get 'home/nonThreeDPayment'
+    get 'home/postAuth'
     get 'home/threeDResultSuccess'
     get 'home/threeDResultFail'
     get 'home/bininqury'
+    get 'home/bininquryv4'
     get 'home/addCardToWallet'
     get 'home/getCardFromWallet'
     get 'home/deleteCardFromWallet'
@@ -16,11 +19,15 @@ Rails.application.routes.draw do
     get 'home/paymentInquiryWithTime'
     get 'home/paymentRefundInquiry'
     get 'home/paymentRefund'
+    get 'home/checkoutFormCreate'
 
     post 'home/index'
+    post 'home/preAuth'
     post 'home/threeDPayment'
+    post 'home/postAuth'
     post 'home/nonThreeDPayment'
     post 'home/bininqury'
+    post 'home/bininquryv4'
     post 'home/addCardToWallet'
     post 'home/getCardFromWallet'
     post 'home/deleteCardFromWallet'
@@ -34,6 +41,7 @@ Rails.application.routes.draw do
     post 'home/paymentInquiryWithTime'
     post 'home/paymentRefundInquiry'
     post 'home/paymentRefund'
+    post 'home/checkoutFormCreate'
 
     root 'home#index'
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

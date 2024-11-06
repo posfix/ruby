@@ -31,3 +31,4 @@ bin/**
 .vscode
 */.vscode
 Gemfile.lock
+.idea

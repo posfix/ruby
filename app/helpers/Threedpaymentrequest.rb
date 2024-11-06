@@ -55,6 +55,7 @@ class Threedpaymentrequest
                         'surname': req.Purchaser.SurName,
                         'email': req.Purchaser.Email,
                         'clientIp': req.Purchaser.ClientIp,
+                        'birthDate': req.Purchaser.BirthDate,
                     },
                     'products': [
                         {
@@ -71,9 +72,9 @@ class Threedpaymentrequest
                         },
                     ],
                     'successUrl':
-                        'https://apitest.posfix.com.tr/rest/payment/threed/test/result',
+                        'https://api.posfix.com.tr/rest/payment/threed/test/result',
                     'failureUrl':
-                        'https://apitest.posfix.com.tr/rest/payment/threed/test/result',
+                        'https://api.posfix.com.tr/rest/payment/threed/test/result',
                     'mode': settings.Mode,
                     'version': settings.Version,
                     'transactionDate': settings.transactionDate,
